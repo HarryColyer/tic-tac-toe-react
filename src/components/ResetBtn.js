@@ -4,8 +4,8 @@ function ResetBtn({ reset }) {
   return (
     <div>
       <button className="reset-btn" onClick={reset}>
-        Reset Game{" "}
-      </button>{" "}
+        Reset Game
+      </button>
     </div>
   );
 }
