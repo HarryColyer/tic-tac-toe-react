@@ -16,16 +16,18 @@ function Board() {
     span: null
   };
 
+  let {msg, span} = status
+
   if (winner) {
-    status.msg = "The winner is ";
-    status.span = winner
+    msg = "The winner is ";
+    span = winner
   } 
   else if (isADraw) {
-    status.msg = "It's draw"
-    status.span = null
+    msg = "It's draw"
+    span = null
   } else {
-    status.msg = "The next player is ";
-    status.span = isXNext ? "x" : "o"
+    msg = "The next player is ";
+    span = isXNext ? "x" : "o"
   }
 
   function handleDraw(squares) {
@@ -45,6 +47,7 @@ function Board() {
     }
     setXIsNext(true)
     setSquares(squaresCopy)
+    setDraw(false)
   }
 
   function handleClick(i) {
@@ -61,7 +64,7 @@ function Board() {
 
   return (
     <div className="container">
-      <h1 className="status">{status.msg}<span className="bold">{status.span}</span></h1>
+      <h1 className="status">{msg}<span className="bold">{span}</span></h1>
       <div className="board">
         <Square value={squares[0]} handleEvent={() => handleClick(0)} />
         <Square value={squares[1]} handleEvent={() => handleClick(1)} />
